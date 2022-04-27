@@ -1,0 +1,12 @@
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/bin/Debug/net6.0/Civ4.Toolkit.Core.deps.json
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/bin/Debug/net6.0/Civ4.Toolkit.Core.dll
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/bin/Debug/net6.0/Civ4.Toolkit.Core.pdb
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/Civ4.Toolkit.Core.csproj.AssemblyReference.cache
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/Civ4.Toolkit.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/Civ4.Toolkit.Core.AssemblyInfoInputs.cache
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/Civ4.Toolkit.Core.AssemblyInfo.cs
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/Civ4.Toolkit.Core.csproj.CoreCompileInputs.cache
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/Civ4.Toolkit.Core.dll
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/refint/Civ4.Toolkit.Core.dll
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/Civ4.Toolkit.Core.pdb
+/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/Debug/net6.0/ref/Civ4.Toolkit.Core.dll
