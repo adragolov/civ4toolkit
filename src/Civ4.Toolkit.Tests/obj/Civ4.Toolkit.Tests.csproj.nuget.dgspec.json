@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj": {}
+    "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj": {}
   },
   "projects": {
-    "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj": {
+    "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj",
+        "projectUniqueName": "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj",
         "projectName": "Civ4.Toolkit.Core",
-        "projectPath": "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj",
-        "packagesPath": "/home/atanas/.nuget/packages/",
-        "outputPath": "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/obj/",
+        "projectPath": "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj",
+        "packagesPath": "/Users/adragolov/.nuget/packages/",
+        "outputPath": "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/atanas/.nuget/NuGet/NuGet.Config"
+          "/Users/adragolov/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -74,21 +74,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj": {
+    "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj",
+        "projectUniqueName": "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj",
         "projectName": "Civ4.Toolkit.Tests",
-        "projectPath": "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj",
-        "packagesPath": "/home/atanas/.nuget/packages/",
-        "outputPath": "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Tests/obj/",
+        "projectPath": "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Tests/Civ4.Toolkit.Tests.csproj",
+        "packagesPath": "/Users/adragolov/.nuget/packages/",
+        "outputPath": "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/atanas/.nuget/NuGet/NuGet.Config"
+          "/Users/adragolov/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -100,8 +100,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj": {
-                "projectPath": "/home/atanas/Documents/Projects/civ4-toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj"
+              "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj": {
+                "projectPath": "/Users/adragolov/Documents/Projects/civ4toolkit/src/Civ4.Toolkit.Core/Civ4.Toolkit.Core.csproj"
               }
             }
           }
@@ -148,7 +148,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
