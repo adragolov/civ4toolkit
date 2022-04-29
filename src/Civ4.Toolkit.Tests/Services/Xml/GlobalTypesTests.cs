@@ -6,15 +6,13 @@ using NUnit.Framework;
 namespace Civ4.Toolkit.Tests.Services.Xml;
 
 [TestFixture]
-public class GlobalTypesTests
+public class GlobalTypesTests : XmlTestBase
 {
     private ICiv4XmlStore<Civ4Types> XmlStore = null!;
-    private ICiv4GameManager GameManager = null!;
 
     [OneTimeSetUp]
     public void Setup()
     {
-        GameManager = TestBootstrapper.ResolveDependency<ICiv4GameManager>();
         XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4Types>>();
     }
     
@@ -41,5 +39,27 @@ public class GlobalTypesTests
         Assert.NotNull(parsed.FootstepAudioTypes);
         Assert.NotNull(parsed.FootstepAudioTags);
         Assert.NotNull(parsed.InterfaceVisibilityTypes);
+    }
+    
+    [TestCase(
+        Civ4GameVariant.BeyondTheSword, "./GlobalTypes.xml",
+        Civ4GameVariant.Vanilla, "./CIV4GlobalTypesSchema.xml",
+        "x-schema:CIV4GlobalTypesSchema.xml")]
+    [TestCase(
+        Civ4GameVariant.Warlords, "./GlobalTypes.xml",
+        Civ4GameVariant.Vanilla, "./CIV4GlobalTypesSchema.xml",
+        "x-schema:CIV4GlobalTypesSchema.xml")]
+    [TestCase(
+        Civ4GameVariant.Vanilla, "./GlobalTypes.xml",
+        Civ4GameVariant.Vanilla, "./CIV4GlobalTypesSchema.xml",
+        "x-schema:CIV4GlobalTypesSchema.xml")]
+    public void ValidateWithSchema(
+        Civ4GameVariant xmlGameVariant,
+        string xmlRelativePath,
+        Civ4GameVariant xdrGameVariant,
+        string xdrRelativePath,
+        string targetNamespace)
+    {
+        ValidateXdr(xmlGameVariant, xmlRelativePath, xdrGameVariant, xdrRelativePath, targetNamespace);
     }
 }

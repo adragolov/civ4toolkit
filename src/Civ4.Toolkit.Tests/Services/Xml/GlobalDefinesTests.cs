@@ -7,18 +7,14 @@ using NUnit.Framework;
 namespace Civ4.Toolkit.Tests.Services.Xml;
 
 [TestFixture]
-public class GlobalDefinesTests
+public class GlobalDefinesTests : XmlTestBase
 {
-    private ICiv4XmlValidator xmlValidator = null!;
     private ICiv4XmlStore<Civ4Defines> XmlStore = null!;
-    private ICiv4GameManager GameManager = null!;
 
     [OneTimeSetUp]
     public void Setup()
     {
-        GameManager = TestBootstrapper.ResolveDependency<ICiv4GameManager>();
         XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4Defines>>();
-        xmlValidator = TestBootstrapper.ResolveDependency<ICiv4XmlValidator>();
     }
     
     [TestCase(Civ4GameVariant.Vanilla, "./GlobalDefines.xml", 294)]
@@ -60,17 +56,6 @@ public class GlobalDefinesTests
         string xdrRelativePath,
         string targetNamespace)
     {
-        var xmlFilepath = GameManager.GetAssetXmlFilepath(xmlGameVariant, xmlRelativePath);
-        var xdrFilepath = GameManager.GetAssetXmlFilepath(xdrGameVariant, xdrRelativePath);
-
-        var validationResult = xmlValidator.ValidateUsingXdrAsync(
-            xmlFilepath, targetNamespace, xdrFilepath).Result;
-        
-        Assert.NotNull(validationResult);
-        Assert.True(validationResult.IsValid);
-        Assert.NotNull(validationResult.Errors);
-        Assert.AreEqual(validationResult.Errors.Count(), 0);
-        Assert.NotNull(validationResult.Warnings);
-        Assert.AreEqual(validationResult.Warnings.Count(), 0);
+        ValidateXdr(xmlGameVariant, xmlRelativePath, xdrGameVariant, xdrRelativePath, targetNamespace);
     }
 }

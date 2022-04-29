@@ -32,6 +32,11 @@ public class TestBootstrapper
     {
         return ResolveDependency<ICiv4GameManager>();
     }
+    
+    public static ICiv4XmlValidator ResolveXmlValidator()
+    {
+        return ResolveDependency<ICiv4XmlValidator>();
+    }
 
     public static ICiv4XmlStore<TXmlAssetFile> ResolveXmlStore<TXmlAssetFile>() where TXmlAssetFile : Civ4AssetFile
     {
