@@ -3,7 +3,7 @@ using Civ4.Toolkit.Model.Assets.Xml;
 using Civ4.Toolkit.Services;
 using NUnit.Framework;
 
-namespace Civ4.Toolkit.Tests.Services.XmlStore;
+namespace Civ4.Toolkit.Tests.Services.Xml;
 
 [TestFixture]
 public class ParseGlobalTypesTests
