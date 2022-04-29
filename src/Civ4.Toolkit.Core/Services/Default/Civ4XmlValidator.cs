@@ -1,7 +1,3 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Schema;
 using Civ4.Toolkit.Model;
@@ -55,18 +51,18 @@ public class Civ4XmlValidator : ICiv4XmlValidator
                 warnings.Add($"{args.Message}, Exception = {args.Exception}");
                 Logger.LogWarning("{ValidationMessage}, Exception = {Exception}",
                     args.Message,
-                    args.Exception);
+                    args.Exception.ToString());
             }
             else
             {
                 errors.Add($"{args.Message}, Exception = {args.Exception}");
                 Logger.LogError("{ValidationMessage}, Exception = {Exception}",
                     args.Message,
-                    args.Exception);
+                    args.Exception.ToString());
             }
         };
 
-        while(await xmlValidationReader.ReadAsync())
+        while(xmlValidationReader.Read())
         {
         }
 

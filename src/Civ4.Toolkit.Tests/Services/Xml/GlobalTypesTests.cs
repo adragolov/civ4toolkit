@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace Civ4.Toolkit.Tests.Services.Xml;
 
 [TestFixture]
-public class ParseGlobalTypesTests
+public class GlobalTypesTests
 {
     private ICiv4XmlStore<Civ4Types> XmlStore = null!;
     private ICiv4GameManager GameManager = null!;
