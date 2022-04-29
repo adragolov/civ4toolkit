@@ -5,11 +5,20 @@ using NUnit.Framework;
 
 namespace Civ4.Toolkit.Tests.Services.Xml;
 
-public abstract class XmlTestBase
+public abstract class XmlTestBase<TXmlFileAsset> where TXmlFileAsset: Civ4AssetFile
 {
-    protected ICiv4GameManager GameManager = TestBootstrapper.ResolveGameManager();
-    protected ICiv4XmlValidator XmlValidator = TestBootstrapper.ResolveXmlValidator();
+    protected ICiv4XmlStore<TXmlFileAsset> XmlStore = null!;
+    protected ICiv4GameManager GameManager = null!;
+    protected ICiv4XmlValidator XmlValidator = null!;
 
+    [OneTimeSetUp]
+    protected virtual void OneTimeDependencyInjection()
+    {
+        GameManager = TestBootstrapper.ResolveGameManager();
+        XmlValidator = TestBootstrapper.ResolveXmlValidator();
+        XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<TXmlFileAsset>>();
+    }
+    
     protected void ValidateXdr(
         Civ4GameVariant xmlGameVariant,
         string xmlRelativePath,

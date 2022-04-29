@@ -1,26 +1,15 @@
-
 using System;
 using System.IO;
 using Civ4.Toolkit.Model;
-using Civ4.Toolkit.Model.Assets.Xml.Art;
+using Civ4.Toolkit.Model.Assets.Xml.BasicInfos;
 using Civ4.Toolkit.Services;
 using NUnit.Framework;
 
-namespace Civ4.Toolkit.Tests.Services.Xml.Art;
+namespace Civ4.Toolkit.Tests.Services.Xml.BasicInfos;
 
-public class ParseCiv4RouteModelInfosTests
+public class InvisibleInfosTests : XmlTestBase<Civ4InvisibleInfos>
 {
-    private ICiv4XmlStore<Civ4RouteModelInfos> XmlStore = null!;
-    private ICiv4GameManager GameManager = null!;
-
-    [OneTimeSetUp]
-    public void Setup()
-    {
-        GameManager = TestBootstrapper.ResolveDependency<ICiv4GameManager>();
-        XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4RouteModelInfos>>();
-    }
-    
-    [TestCase(Civ4GameVariant.BeyondTheSword, "./Art/CIV4RouteModelInfos.xml", 140)]
+    [TestCase(Civ4GameVariant.BeyondTheSword, "./BasicInfos/CIV4InvisibleInfos.xml", 2)]
     public void VerifyCounts(
         Civ4GameVariant gameVariant,
         string xmlRelativePath,
@@ -29,13 +18,13 @@ public class ParseCiv4RouteModelInfosTests
         var assetPath = GameManager.GetAssetXmlFilepath(gameVariant, xmlRelativePath);
         var parsed = XmlStore.LoadAsync(assetPath).Result;
         Assert.NotNull(parsed);
-        Assert.NotNull(parsed.RouteModelInfos);
+        Assert.NotNull(parsed.InvisibleInfos);
         Assert.AreEqual(parsed.FilePath, assetPath);
-        Assert.AreEqual(parsed.RouteModelInfos!.Length, expectedCount);
+        Assert.AreEqual(parsed.InvisibleInfos!.Length, expectedCount);
     }
     
-    [TestCase(Civ4GameVariant.Vanilla, "./Art/CIV4MainMenus.xml")]
-    [TestCase(Civ4GameVariant.Warlords, "./Art/CIV4MainMenus.xml")]
+    [TestCase(Civ4GameVariant.Vanilla, "./BasicInfos/CIV4InvisibleInfos.xml")]
+    [TestCase(Civ4GameVariant.Warlords, "./BasicInfos/CIV4InvisibleInfos.xml")]
     public void ExpectFileNotFound(
         Civ4GameVariant gameVariant,
         string xmlRelativePath)

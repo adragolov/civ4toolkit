@@ -1,22 +1,13 @@
-using System.Linq;
 using Civ4.Toolkit.Model;
 using Civ4.Toolkit.Model.Assets.Xml;
-using Civ4.Toolkit.Services;
 using NUnit.Framework;
 
 namespace Civ4.Toolkit.Tests.Services.Xml;
 
 [TestFixture]
-public class GlobalDefinesTests : XmlTestBase
+public class GlobalDefinesTests : XmlTestBase<Civ4Defines>
 {
-    private ICiv4XmlStore<Civ4Defines> XmlStore = null!;
 
-    [OneTimeSetUp]
-    public void Setup()
-    {
-        XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4Defines>>();
-    }
-    
     [TestCase(Civ4GameVariant.Vanilla, "./GlobalDefines.xml", 294)]
     [TestCase(Civ4GameVariant.Warlords, "./GlobalDefines.xml", 311)]
     [TestCase(Civ4GameVariant.BeyondTheSword, "./GlobalDefines.xml", 405)]

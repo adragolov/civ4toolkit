@@ -14,7 +14,7 @@ public class Civ4XmlValidator : ICiv4XmlValidator
         Logger = logger;
     }
 
-    public async Task<Civ4AssetFileValidationResult> ValidateUsingXdrAsync(
+    public Task<Civ4AssetFileValidationResult> ValidateUsingXdrAsync(
         string xmlFile,
         string targetNamespace,
         string xdrFile,
@@ -66,12 +66,12 @@ public class Civ4XmlValidator : ICiv4XmlValidator
         {
         }
 
-        return new Civ4AssetFileValidationResult
+        return Task.FromResult(new Civ4AssetFileValidationResult
         {
             XdrFile = xdrFile,
             ValidationType = xmlValidationReader.ValidationType,
             Warnings = warnings,
             Errors = errors,
-        };
+        });
     }
 }

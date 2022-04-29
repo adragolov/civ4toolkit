@@ -2,23 +2,12 @@ using System;
 using System.IO;
 using Civ4.Toolkit.Model;
 using Civ4.Toolkit.Model.Assets.Xml.BasicInfos;
-using Civ4.Toolkit.Services;
 using NUnit.Framework;
 
 namespace Civ4.Toolkit.Tests.Services.Xml.BasicInfos;
 
-public class ParseCiv4MemoryInfosTests
+public class MemoryInfosTests : XmlTestBase<Civ4MemoryInfos>
 {
-    private ICiv4XmlStore<Civ4MemoryInfos> XmlStore = null!;
-    private ICiv4GameManager GameManager = null!;
-
-    [OneTimeSetUp]
-    public void Setup()
-    {
-        GameManager = TestBootstrapper.ResolveDependency<ICiv4GameManager>();
-        XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4MemoryInfos>>();
-    }
-    
     [TestCase(Civ4GameVariant.BeyondTheSword, "./BasicInfos/CIV4MemoryInfos.xml", 33)]
     public void VerifyCounts(
         Civ4GameVariant gameVariant,

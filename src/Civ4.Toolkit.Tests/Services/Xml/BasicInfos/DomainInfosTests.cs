@@ -1,26 +1,14 @@
-
 using System;
 using System.IO;
 using Civ4.Toolkit.Model;
-using Civ4.Toolkit.Model.Assets.Xml.Art;
-using Civ4.Toolkit.Services;
+using Civ4.Toolkit.Model.Assets.Xml.BasicInfos;
 using NUnit.Framework;
 
-namespace Civ4.Toolkit.Tests.Services.Xml.Art;
+namespace Civ4.Toolkit.Tests.Services.Xml.BasicInfos;
 
-public class ParseCiv4MainMenusTests
+public class DomainInfosTests : XmlTestBase<Civ4DomainInfos>
 {
-    private ICiv4XmlStore<Civ4MainMenus> XmlStore = null!;
-    private ICiv4GameManager GameManager = null!;
-
-    [OneTimeSetUp]
-    public void Setup()
-    {
-        GameManager = TestBootstrapper.ResolveDependency<ICiv4GameManager>();
-        XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4MainMenus>>();
-    }
-    
-    [TestCase(Civ4GameVariant.BeyondTheSword, "./Art/CIV4MainMenus.xml", 4)]
+    [TestCase(Civ4GameVariant.BeyondTheSword, "./BasicInfos/CIV4DomainInfos.xml", 4)]
     public void VerifyCounts(
         Civ4GameVariant gameVariant,
         string xmlRelativePath,
@@ -29,13 +17,13 @@ public class ParseCiv4MainMenusTests
         var assetPath = GameManager.GetAssetXmlFilepath(gameVariant, xmlRelativePath);
         var parsed = XmlStore.LoadAsync(assetPath).Result;
         Assert.NotNull(parsed);
-        Assert.NotNull(parsed.MainMenus);
+        Assert.NotNull(parsed.DomainInfos);
         Assert.AreEqual(parsed.FilePath, assetPath);
-        Assert.AreEqual(parsed.MainMenus!.Length, expectedCount);
+        Assert.AreEqual(parsed.DomainInfos!.Length, expectedCount);
     }
     
-    [TestCase(Civ4GameVariant.Vanilla, "./Art/CIV4MainMenus.xml")]
-    [TestCase(Civ4GameVariant.Warlords, "./Art/CIV4MainMenus.xml")]
+    [TestCase(Civ4GameVariant.Vanilla, "./BasicInfos/CIV4DomainInfos.xml")]
+    [TestCase(Civ4GameVariant.Warlords, "./BasicInfos/CIV4DomainInfos.xml")]
     public void ExpectFileNotFound(
         Civ4GameVariant gameVariant,
         string xmlRelativePath)

@@ -1,21 +1,12 @@
 using Civ4.Toolkit.Model;
 using Civ4.Toolkit.Model.Assets.Xml;
-using Civ4.Toolkit.Services;
 using NUnit.Framework;
 
 namespace Civ4.Toolkit.Tests.Services.Xml;
 
 [TestFixture]
-public class GlobalTypesTests : XmlTestBase
+public class GlobalTypesTests : XmlTestBase<Civ4Types>
 {
-    private ICiv4XmlStore<Civ4Types> XmlStore = null!;
-
-    [OneTimeSetUp]
-    public void Setup()
-    {
-        XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4Types>>();
-    }
-    
     [TestCase(Civ4GameVariant.Vanilla, "./GlobalTypes.xml")]
     [TestCase(Civ4GameVariant.Warlords, "./GlobalTypes.xml")]
     [TestCase(Civ4GameVariant.BeyondTheSword, "./GlobalTypes.xml")]

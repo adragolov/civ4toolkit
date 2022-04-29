@@ -1,25 +1,11 @@
-
-using System;
-using System.IO;
 using Civ4.Toolkit.Model;
 using Civ4.Toolkit.Model.Assets.Xml.Art;
-using Civ4.Toolkit.Services;
 using NUnit.Framework;
 
 namespace Civ4.Toolkit.Tests.Services.Xml.Art;
 
-public class ParseCiv4ArtDefinesUnitArtInfosTests
+public class ArtDefinesUnitArtInfosTests : XmlTestBase<Civ4ArtDefinesUnitArtInfos>
 {
-    private ICiv4XmlStore<Civ4ArtDefinesUnitArtInfos> XmlStore = null!;
-    private ICiv4GameManager GameManager = null!;
-
-    [OneTimeSetUp]
-    public void Setup()
-    {
-        GameManager = TestBootstrapper.ResolveDependency<ICiv4GameManager>();
-        XmlStore = TestBootstrapper.ResolveDependency<ICiv4XmlStore<Civ4ArtDefinesUnitArtInfos>>();
-    }
-    
     [TestCase(Civ4GameVariant.Vanilla, "./Art/CIV4ArtDefines_Unit.xml", 95)]
     [TestCase(Civ4GameVariant.Warlords, "./Art/CIV4ArtDefines_Unit.xml", 136)]
     [TestCase(Civ4GameVariant.BeyondTheSword, "./Art/CIV4ArtDefines_Unit.xml", 224)]
