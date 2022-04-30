@@ -11,11 +11,11 @@ namespace Civ4.Toolkit.Tests;
 [SetUpFixture]
 public class TestBootstrapper
 {
-    public static readonly string TestRunId = Guid.NewGuid().ToString();
+    static readonly string TestRunId = Guid.NewGuid().ToString();
 
-    public static DateTimeOffset? TestRunStart;
+    static DateTimeOffset? TestRunStart;
 
-    public static DateTimeOffset? TestRunFinish;
+    static DateTimeOffset? TestRunFinish;
     
     public static ILogger<TestBootstrapper>? TestLogger { get; private set; }
     
