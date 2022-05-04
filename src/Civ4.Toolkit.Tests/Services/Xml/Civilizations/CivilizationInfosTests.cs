@@ -21,4 +21,26 @@ public class CivilizationInfosTests : XmlTestBase<Civ4CivilizationInfos>
         Assert.AreEqual(parsed.FilePath, assetPath);
         Assert.AreEqual(parsed.CivilizationInfos!.Length, expectedCount);
     }
+
+    [TestCase(
+        Civ4GameVariant.BeyondTheSword, "./Civilizations/CIV4CivilizationInfos.xml",
+        Civ4GameVariant.BeyondTheSword, "./Civilizations/CIV4CivilizationsSchema.xml",
+        "x-schema:CIV4CivilizationsSchema.xml")]
+    [TestCase(
+        Civ4GameVariant.Warlords, "./Civilizations/CIV4CivilizationInfos.xml",
+        Civ4GameVariant.Warlords, "./Civilizations/CIV4CivilizationsSchema.xml",
+        "x-schema:CIV4CivilizationsSchema.xml")]
+    [TestCase(
+        Civ4GameVariant.Vanilla, "./Civilizations/CIV4CivilizationInfos.xml",
+        Civ4GameVariant.Vanilla, "./Civilizations/CIV4CivilizationsSchema.xml",
+        "x-schema:CIV4CivilizationsSchema.xml")]
+    public void ValidateWithSchema(
+        Civ4GameVariant xmlGameVariant,
+        string xmlRelativePath,
+        Civ4GameVariant xdrGameVariant,
+        string xdrRelativePath,
+        string targetNamespace)
+    {
+        ValidateXdr(xmlGameVariant, xmlRelativePath, xdrGameVariant, xdrRelativePath, targetNamespace);
+    }
 }
