@@ -1,4 +1,3 @@
-
 using System.Xml.Serialization;
 
 namespace Civ4.Toolkit.Model.Assets.Xml.Art;
