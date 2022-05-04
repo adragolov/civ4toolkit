@@ -41,4 +41,22 @@ public class TraitInfosTests : XmlTestBase<Civ4TraitInfos>
             Assert.True(exception.InnerException is FileNotFoundException);
         }
     }
+    
+    [TestCase(
+        Civ4GameVariant.Warlords, "./Civilizations/CIV4TraitInfos.xml",
+        Civ4GameVariant.Warlords, "./Civilizations/CIV4CivilizationsSchema.xml",
+        "x-schema:CIV4CivilizationsSchema.xml")]
+    [TestCase(
+        Civ4GameVariant.Vanilla, "./Civilizations/CIV4TraitInfos.xml",
+        Civ4GameVariant.Vanilla, "./Civilizations/CIV4CivilizationsSchema.xml",
+        "x-schema:CIV4CivilizationsSchema.xml")]
+    public void ValidateWithSchema(
+        Civ4GameVariant xmlGameVariant,
+        string xmlRelativePath,
+        Civ4GameVariant xdrGameVariant,
+        string xdrRelativePath,
+        string targetNamespace)
+    {
+        ValidateXdr(xmlGameVariant, xmlRelativePath, xdrGameVariant, xdrRelativePath, targetNamespace);
+    }
 }
