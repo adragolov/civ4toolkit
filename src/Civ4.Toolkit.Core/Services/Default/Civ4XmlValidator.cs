@@ -66,12 +66,33 @@ public class Civ4XmlValidator : ICiv4XmlValidator
         {
         }
 
-        return Task.FromResult(new Civ4AssetFileValidationResult
+        var result = new Civ4AssetFileValidationResult
         {
             XdrFile = xdrFile,
             ValidationType = xmlValidationReader.ValidationType,
             Warnings = warnings,
             Errors = errors,
-        });
+        };
+
+        if (result.IsValid)
+        {
+            Logger.LogInformation(
+                "XML asset '{XmlAssetFile}' has passed validation against XDR at path '{XdrSchemaFile}'",
+                xmlFile,
+                xdrFile);
+        }
+        else
+        {
+            Logger.LogWarning(
+                "XML asset '{XmlAssetFile}' has failed validation against XDR at path '{XdrSchemaFile}'. " +
+                "Errors: {ErrorMessages}: ",
+                xmlFile,
+                xdrFile,
+                string.Join(
+                    string.Empty, 
+                    result.Errors.Select(error => $"{Environment.NewLine} - {error}")));
+        }
+
+        return Task.FromResult(result);
     }
 }

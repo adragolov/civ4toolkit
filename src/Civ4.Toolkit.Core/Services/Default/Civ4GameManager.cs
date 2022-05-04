@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Civ4.Toolkit.Model;
 using Microsoft.Extensions.Logging;
 

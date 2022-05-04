@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Xml;
 using Civ4.Toolkit.Model;
 using Civ4.Toolkit.Services;
 using NUnit.Framework;
@@ -34,6 +35,11 @@ public abstract class XmlTestBase<TXmlFileAsset> where TXmlFileAsset: Civ4AssetF
         
         Assert.NotNull(validationResult);
         Assert.True(validationResult.IsValid);
+        Assert.NotNull(validationResult.XdrFile);
+        Assert.AreEqual(validationResult.XdrFile, xdrFilepath);
+#pragma warning disable CS0618
+        Assert.True(validationResult.ValidationType == ValidationType.XDR);
+#pragma warning restore CS0618
         Assert.NotNull(validationResult.Errors);
         Assert.AreEqual(validationResult.Errors.Count(), 0);
         Assert.NotNull(validationResult.Warnings);
