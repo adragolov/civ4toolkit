@@ -1,0 +1,18 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5222",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "CIV4_GAME_ROOT": "../../resources/game/",
+        "CIV4_GAME_ROOT_WARLORDS": "../../resources/game/Warlords",
+        "CIV4_GAME_ROOT_BTS": "../../resources/game/BTS"
+      }
+    }
+  }
+}

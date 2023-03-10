@@ -37,6 +37,8 @@ public class Civ4GameManager : ICiv4GameManager
         gameRoot = gameRoot.StartsWith("~/") ?
             gameRoot.Replace("~", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)) :
             gameRoot;
+
+        gameRoot = Path.GetFullPath(gameRoot);
         
         if (!Directory.Exists(gameRoot))
         {
@@ -60,6 +62,44 @@ public class Civ4GameManager : ICiv4GameManager
     public string GetAssetXmlFilepath(Civ4GameVariant variant, string relativePath)
     {
         return Path.Combine(GetAssetsXmlDir(variant), relativePath);
+    }
+
+    public string GetGlobalTypesFilepath(Civ4GameVariant variant)
+    {
+        return GetAssetXmlFilepath(variant, "./GlobalTypes.xml");
+    }
+
+    public string GetGlobalDefinesFilepath(Civ4GameVariant variant)
+    {
+        return GetAssetXmlFilepath(variant, "./GlobalDefines.xml");
+    }
+
+    public string GetCivilizationInfosFilepath(Civ4GameVariant variant)
+    {
+        return GetAssetXmlFilepath(variant, "./Civilizations/CIV4CivilizationInfos.xml");
+    }
+
+    public string GetCivilizationLeaderHeadInfosFilepath(Civ4GameVariant variant)
+    {
+        return GetAssetXmlFilepath(variant, "./Civilizations/CIV4LeaderHeadInfos.xml");
+    }
+
+    public string GetCivilizationTraitInfosFilepath(Civ4GameVariant variant)
+    {
+        switch (variant)
+        {
+            case Civ4GameVariant.BeyondTheSword:
+                return GetAssetXmlFilepath(Civ4GameVariant.Warlords, "./Civilizations/CIV4TraitInfos.xml");
+            default:
+                return GetAssetXmlFilepath(variant, "./Civilizations/CIV4TraitInfos.xml");
+        }
+    }
+
+    public Civ4GameVariant[] GetConfiguredGameVariants()
+    {
+        return Enum.GetValues<Civ4GameVariant>()
+            .Where(IsConfigured)
+            .ToArray();
     }
 
     private void InitializeGameRoots()
